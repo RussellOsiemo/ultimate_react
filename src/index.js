@@ -1,17 +1,34 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import reactDom from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+
+function BookList () {
+    // always return something (a single element (eg everthing in section or div element))
+return (
+    <section className = "booklist">
+       <Book/>
+       <Book/>
+       </section>
 );
+};
+const Book = () => {
+    return (
+          <article>
+             <Image/>
+             <Title/>
+             <Author/>
+        </article>
+        );
+};
+const Image  = () => 
+<img src="https://m.media-amazon.com/images/I/91DNhLLmUOL._AC_UY218_.jpg" alt="" />
+const Title = () =>
+    <h3>Atlas of the Heart
+    </h3>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Author = () => 
+    <h5>Brené Brown</h5>
+
+// from reactDom to help render what i code to root div in index.html
+reactDom.render(<BookList />,document.getElementById('root'))
